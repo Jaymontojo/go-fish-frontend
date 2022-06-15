@@ -1,6 +1,5 @@
 import { Component } from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -8,18 +7,47 @@ class App extends Component {
     super();
     
     this.state = {
-      name: 'Jay'
+      fishData: [
+        {
+          name: 'Japanese Seabass',
+          id: 1
+        },
+        {
+          name: 'Japanese Whiting',
+          id: 2
+        },
+        {
+          name: 'Japanese Mackerel',
+          id: 3
+        },
+        {
+          name: 'Horse Mackerel',
+          id: 4
+        },
+        {
+          name: 'Red Seabream',
+          id: 5
+        },
+        {
+          name: 'Black Seabream',
+          id: 6
+        },
+      ]
     }
   }
 
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p> {this.state.name} </p>
-          <button>Change Name</button>
-        </header>
+        {
+          this.state.fishData.map((fish) => {
+            return (
+              <div key={fish.id}>
+                <h1>{fish.name}</h1>
+              </div>
+            )
+          })
+        }
       </div>
     );
   }
