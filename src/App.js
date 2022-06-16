@@ -10,33 +10,7 @@ class App extends Component {
     
     this.state = {
       isFetching: false,
-      fishDataDB: [],
-      fishDataLocal: [
-        {
-          name: 'Japanese Seabass',
-          id: 1
-        },
-        {
-          name: 'Japanese Whiting',
-          id: 2
-        },
-        {
-          name: 'Japanese Mackerel',
-          id: 3
-        },
-        {
-          name: 'Horse Mackerel',
-          id: 4
-        },
-        {
-          name: 'Red Seabream',
-          id: 5
-        },
-        {
-          name: 'Black Seabream',
-          id: 6
-        },
-      ]
+      fishDataDB: []
     }
   }
   componentDidMount(){
@@ -62,13 +36,21 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <input 
+          className='search-box'
+          type='search'
+          placeholder='search monsters'
+          onChange={(e) => {
+            console.log("...typing")
+          }}
+        ></input>
         {
           this.state.fishDataDB.map((fish) => {
-              return (
-                <div key={fish.id}>
-                  <h1>{fish.name_jp}({fish.name_en})</h1>
-                </div>
-              )
+            return (
+              <div key={fish.id}>
+                <h1>{fish.name_jp}({fish.name_en})</h1>
+              </div>
+            )
           })
         }
       </div>
