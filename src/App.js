@@ -1,5 +1,4 @@
 import { Component } from 'react';
-
 import './App.css';
 
 class App extends Component {
@@ -7,7 +6,7 @@ class App extends Component {
     super();
     
     this.state = {
-      fishData: [
+      fishDataLocal: [
         {
           name: 'Japanese Seabass',
           id: 1
@@ -40,7 +39,7 @@ class App extends Component {
     return (
       <div className="App">
         {
-          this.state.fishData.map((fish) => {
+          this.state.fishDataLocal.map((fish) => {
             return (
               <div key={fish.id}>
                 <h1>{fish.name}</h1>
