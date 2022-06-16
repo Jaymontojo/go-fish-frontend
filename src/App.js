@@ -10,7 +10,7 @@ class App extends Component {
     
     this.state = {
       isFetching: false,
-      fishDataDB: null,
+      fishDataDB: [],
       fishDataLocal: [
         {
           name: 'Japanese Seabass',
@@ -51,6 +51,7 @@ class App extends Component {
     const fishData = await Fish.getAll()
     this.setState(
       () => {return { fishDataDB: fishData}},
+      () => {console.log(this.state.fishDataDB)}
     );
     
     this.setState(
@@ -62,12 +63,12 @@ class App extends Component {
     return (
       <div className="App">
         {
-          this.state.fishDataLocal.map((fish) => {
-            return (
-              <div key={fish.id}>
-                <h1>{fish.name}</h1>
-              </div>
-            )
+          this.state.fishDataDB.map((fish) => {
+              return (
+                <div key={fish.id}>
+                  <h1>{fish.name_jp}({fish.name_en})</h1>
+                </div>
+              )
           })
         }
       </div>
