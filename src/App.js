@@ -1,4 +1,7 @@
 import { Component } from 'react';
+// import {db} from './firestore/config';
+// import {collection, getDocs } from 'firebase/firestore'
+import Fish from './entities/Fish'
 import './App.css';
 
 class App extends Component {
@@ -6,6 +9,8 @@ class App extends Component {
     super();
     
     this.state = {
+      isFetching: false,
+      fishDataDB: null,
       fishDataLocal: [
         {
           name: 'Japanese Seabass',
@@ -33,6 +38,24 @@ class App extends Component {
         },
       ]
     }
+  }
+  componentDidMount(){
+    this.fetchAllFishHandler();
+  }
+    
+  async fetchAllFishHandler() {
+    this.setState(
+      () => {return { isFetching: true}},
+    );
+
+    const fishData = await Fish.getAll()
+    this.setState(
+      () => {return { fishDataDB: fishData}},
+    );
+    
+    this.setState(
+      () => {return { isFetching: false}},
+    );
   }
 
   render(){
