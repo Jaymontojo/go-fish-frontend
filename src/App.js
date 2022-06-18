@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Fish from './entities/Fish'
+import CardList from './components/card-list/card-list.component';
 import './App.css';
 
 class App extends Component {
@@ -62,6 +63,7 @@ class App extends Component {
             )
           })
         }
+        <CardList/>
       </div>
     );
   }
