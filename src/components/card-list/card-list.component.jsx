@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './card-list.styles.css'
+import Card from '../card/card.component'
 
 
 class CardList extends Component {
@@ -18,6 +19,7 @@ class CardList extends Component {
             )
           })
         }
+        <Card className= 'fish-card'/>
       </div>
     )
   }
