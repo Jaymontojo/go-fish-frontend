@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import Fish from './entities/Fish'
+import CardList from './components/card-list/card-list.component';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    console.log("State Initialized")
     this.state = {
       isFetching: false,
       fish: [],
@@ -13,7 +13,6 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    console.log('Component Mounted')
     this.fetchAllFishHandler();
   }
     
@@ -46,22 +45,17 @@ class App extends Component {
       return fish.name_en.toLowerCase().includes(searchInput);
     })
     return (
-      <div className="App">
+      <div className='App'>
         <input 
           className='search-box'
           type='search'
           placeholder='search fish'
           onChange={searchFilterHandler}
         ></input>
-        {
-          filteredFish.map((fish) => {
-            return (
-              <div key={fish.id}>
-                <h1>{fish.name_jp}({fish.name_en})</h1>
-              </div>
-            )
-          })
-        }
+        <CardList
+          className = 'fish-card-list'
+          listData = { filteredFish }
+        />
       </div>
     );
   }
