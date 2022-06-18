@@ -5,54 +5,56 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    
+    console.log("State Initialized")
     this.state = {
       isFetching: false,
-      fishDataDB: [],
-      searchValue: '',
+      fish: [],
+      searchInput: '',
     }
   }
   componentDidMount(){
+    console.log('Component Mounted')
     this.fetchAllFishHandler();
   }
     
-  async fetchAllFishHandler() {
+  fetchAllFishHandler = async () => {
     this.setState(
       () => {return { isFetching: true}}
     );
 
-    const fishData = await Fish.getAll()
+    const res = await Fish.getAll()
     this.setState(
-      () => {return { fishDataDB: fishData}},
+      () => {return { fish: res}},
     );
     
     this.setState(
       () => {return { isFetching: false}}
     );
-  }
+  };
 
-  filterDisplayedFish(value) {
-    const results = this.state.fishDataDB.filter((fish) => {
-      return fish.name_en.toLowerCase().includes(value);
+  searchFilterHandler = (e) => {
+    const searchInput = e.target.value.toLowerCase()
+    this.setState(() => {
+      return { searchInput }
     })
-    this.setState(
-      () => {return { fishDataDB: results}}
-    );
-  }
-
+  };
   render(){
+    const { fish, searchInput } = this.state;
+    const { searchFilterHandler } = this;
+    
+    const filteredFish = fish.filter((fish) => {
+      return fish.name_en.toLowerCase().includes(searchInput);
+    })
     return (
       <div className="App">
         <input 
           className='search-box'
           type='search'
           placeholder='search fish'
-          onChange={(e) => {
-            this.filterDisplayedFish(e.target.value.toLowerCase())
-          }}
+          onChange={searchFilterHandler}
         ></input>
         {
-          this.state.fishDataDB.map((fish) => {
+          filteredFish.map((fish) => {
             return (
               <div key={fish.id}>
                 <h1>{fish.name_jp}({fish.name_en})</h1>
