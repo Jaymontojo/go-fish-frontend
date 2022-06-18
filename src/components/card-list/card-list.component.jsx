@@ -9,17 +9,9 @@ class CardList extends Component {
  
     return (
       <div className= {`card-list ${className}`}>
-        {
-          listData.map((fish) => {
-            return (
-              <div key={fish.id}>
-                <h1>{fish.name_jp}</h1>
-                <p>({fish.name_en})</p>
-              </div>
-            )
-          })
-        }
-        <Card className= 'fish-card'/>
+        {listData.map((fish) => {
+            return <Card className= 'fish-card' fish = { fish }/>
+        })}
       </div>
     )
   }
