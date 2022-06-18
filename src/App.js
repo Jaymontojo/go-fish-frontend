@@ -1,74 +1,65 @@
 import { Component } from 'react';
-// import {db} from './firestore/config';
-// import {collection, getDocs } from 'firebase/firestore'
 import Fish from './entities/Fish'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    
+    console.log("State Initialized")
     this.state = {
       isFetching: false,
-      fishDataDB: [],
-      fishDataLocal: [
-        {
-          name: 'Japanese Seabass',
-          id: 1
-        },
-        {
-          name: 'Japanese Whiting',
-          id: 2
-        },
-        {
-          name: 'Japanese Mackerel',
-          id: 3
-        },
-        {
-          name: 'Horse Mackerel',
-          id: 4
-        },
-        {
-          name: 'Red Seabream',
-          id: 5
-        },
-        {
-          name: 'Black Seabream',
-          id: 6
-        },
-      ]
+      fish: [],
+      searchInput: '',
     }
   }
   componentDidMount(){
+    console.log('Component Mounted')
     this.fetchAllFishHandler();
   }
     
-  async fetchAllFishHandler() {
+  fetchAllFishHandler = async () => {
     this.setState(
-      () => {return { isFetching: true}},
+      () => {return { isFetching: true}}
     );
 
-    const fishData = await Fish.getAll()
+    const res = await Fish.getAll()
     this.setState(
-      () => {return { fishDataDB: fishData}},
-      () => {console.log(this.state.fishDataDB)}
+      () => {return { fish: res}},
     );
     
     this.setState(
-      () => {return { isFetching: false}},
+      () => {return { isFetching: false}}
     );
-  }
+  };
 
+  searchFilterHandler = (e) => {
+    const searchInput = e.target.value.toLowerCase()
+    this.setState(() => {
+      return { searchInput }
+    })
+  };
   render(){
+    const { fish, searchInput } = this.state;
+    const { searchFilterHandler } = this;
+    
+    const filteredFish = fish.filter((fish) => {
+      return fish.name_en.toLowerCase().includes(searchInput);
+    })
     return (
       <div className="App">
+        <input 
+          className='search-box'
+          type='search'
+          placeholder='search fish'
+          onChange={searchFilterHandler}
+        ></input>
         {
-          this.state.fishDataDB.map((fish) => {
-              return (
-                <div key={fish.id}>
-                  <h1>{fish.name_jp}({fish.name_en})</h1>
-                </div>
-              )
+          filteredFish.map((fish) => {
+            return (
+              <div key={fish.id}>
+                <h1>{fish.name_jp}({fish.name_en})</h1>
+              </div>
+            )
           })
         }
       </div>
