@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Jaymontojo/go-fish-frontend/compare/v0.1.1...v0.1.2) (2022-06-18)
+
+
+### Features
+
+* 14-add-component-file-structure ([a592b23](https://github.com/Jaymontojo/go-fish-frontend/commit/a592b2312ced4ce3883420f4b5a10ef6d3221f87))
+* 15-move-card-list-logic-to-component ([182b0fd](https://github.com/Jaymontojo/go-fish-frontend/commit/182b0fda7386855f91c3ee0f19725d8a29842a8e))
+* 16-add-class-list-css-styles ([cf1e08e](https://github.com/Jaymontojo/go-fish-frontend/commit/cf1e08ea73e999e390470733796b8a6441ad9b80))
+* 16-add-class-list-css-styles ([b4488a0](https://github.com/Jaymontojo/go-fish-frontend/commit/b4488a0349d75febec85e5d749ca4526a494fc9c))
+
 ### 0.1.1 (2022-06-18)
 
 
