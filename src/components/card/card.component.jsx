@@ -7,10 +7,10 @@ class Card extends Component {
     const { name_jp, name_en } = this.props.fish
 
     return (
-      <div className= {`card-container ${className}`}>
-        <img src='temp_src' alt={`image of ${name_jp}`}/>
-        <h1>{name_jp}</h1>
-        <p>({name_en})</p>
+      <div className= {`card-container ${ className }`}>
+        <img src='temp_src' alt={ name_jp }/>
+        <h1>{ name_jp }</h1>
+        <p>({ name_en })</p>
       </div>
     )
   }

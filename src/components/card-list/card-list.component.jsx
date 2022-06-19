@@ -8,7 +8,7 @@ class CardList extends Component {
     const { className, listData } = this.props;
  
     return (
-      <div className= {`card-list ${className}`}>
+      <div className= {`card-list ${ className }`}>
         {listData.map((fish) => {
             return <Card className= 'fish-card-container' fish = { fish }/>
         })}
