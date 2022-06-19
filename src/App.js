@@ -47,6 +47,7 @@ class App extends Component {
     })
     return (
       <div className='App'>
+        <h1 className='app-title'>漁フィッシュ</h1>
         <SearchBar
           className='fish-search-box'
           placeholder='search fish'
