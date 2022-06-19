@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/Jaymontojo/go-fish-frontend/compare/v0.1.2...v0.1.3) (2022-06-19)
+
+
+### Features
+
+* 19-import single-card-component ([04552a9](https://github.com/Jaymontojo/go-fish-frontend/commit/04552a913c99742e1946f0fc96db15baf7d4c620))
+* 20-move-single-card-logic ([ca90510](https://github.com/Jaymontojo/go-fish-frontend/commit/ca905109ee08613a04e6f859dd62919265452c26))
+* 21-add-placeholder-img ([e781280](https://github.com/Jaymontojo/go-fish-frontend/commit/e781280f380f72f7811ef0eef3012996b651ce5d))
+* 22-add-basic-css-styling ([fe1b490](https://github.com/Jaymontojo/go-fish-frontend/commit/fe1b49018a8b6a46e003de2662157fd39ed81098))
+
 ### [0.1.2](https://github.com/Jaymontojo/go-fish-frontend/compare/v0.1.1...v0.1.2) (2022-06-18)
 
 
