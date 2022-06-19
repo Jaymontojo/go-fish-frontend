@@ -32,7 +32,7 @@ class App extends Component {
     );
   };
 
-  searchFilterHandler = (e) => {
+  filterFish = (e) => {
     const searchInput = e.target.value.toLowerCase()
     this.setState(() => {
       return { searchInput }
@@ -40,20 +40,18 @@ class App extends Component {
   };
   render(){
     const { fish, searchInput } = this.state;
-    const { searchFilterHandler } = this;
+    const { filterFish } = this;
     
     const filteredFish = fish.filter((fish) => {
       return fish.name_en.toLowerCase().includes(searchInput);
     })
     return (
       <div className='App'>
-        <input 
-          className='search-box'
-          type='search'
+        <SearchBar
+          className='fish-search-box'
           placeholder='search fish'
-          onChange={searchFilterHandler}
-        ></input>
-        <SearchBar/>
+          onChangeHandler={ filterFish }
+        />
         <CardList
           className = 'fish-card-list'
           listData = { filteredFish }
