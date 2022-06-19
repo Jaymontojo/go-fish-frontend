@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/Jaymontojo/go-fish-frontend/compare/v0.1.3...v0.1.4) (2022-06-19)
+
+
+### Features
+
+* 25-add-search-box-component ([4719984](https://github.com/Jaymontojo/go-fish-frontend/commit/4719984791fc68f4e110e4148ee932b3a12830d2))
+* 26-transfer-search-box-logic ([0804249](https://github.com/Jaymontojo/go-fish-frontend/commit/080424969d9b36ab575e0c62da3c9f43e2b520a6))
+* 27-add-basic-css-search-box ([c92496e](https://github.com/Jaymontojo/go-fish-frontend/commit/c92496e782a65a6e7fb9bcf6f9a805e18f58c80a))
+* 28-add-basic-css-app.js ([f30b199](https://github.com/Jaymontojo/go-fish-frontend/commit/f30b1993c060b909182d3581d5abf834e5cf8623))
+
 ### [0.1.3](https://github.com/Jaymontojo/go-fish-frontend/compare/v0.1.2...v0.1.3) (2022-06-19)
 
 
