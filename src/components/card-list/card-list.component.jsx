@@ -10,7 +10,7 @@ class CardList extends Component {
     return (
       <div className= {`card-list ${className}`}>
         {listData.map((fish) => {
-            return <Card className= 'fish-card' fish = { fish }/>
+            return <Card className= 'fish-card-container' fish = { fish }/>
         })}
       </div>
     )
